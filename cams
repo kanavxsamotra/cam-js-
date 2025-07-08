@@ -1,1 +1,13 @@
-
+<!DOCTYPE html>
+<html>
+<body>
+    <video id="video" width="600" height="400" autoplay></video>
+    <button onclick="c=document.getElementById('canvas'); c.getContext('2d').drawImage(video,0,0); a=document.createElement('a'); a.href=c.toDataURL(); a.download='photo.png'; a.click()">Take Picture</button>
+    <canvas id="canvas" width="600" height="400" style="display:none;"></canvas>
+    <img id="photo" style="display:none;">
+    
+    <script>
+        navigator.mediaDevices.getUserMedia({video:true}).then(s => video.srcObject = s)
+    </script>
+</body>
+</html>
